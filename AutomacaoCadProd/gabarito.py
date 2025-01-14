@@ -24,7 +24,7 @@ time.sleep(3)
 
 # Passo 2: Fazer login
 # selecionar o campo de email
-pyautogui.click(x=685, y=451)
+pyautogui.click(x=889, y=530)
 # escrever o seu email
 pyautogui.write("pythonimpressionador@gmail.com")
 pyautogui.press("tab") # passando pro próximo campo
@@ -42,7 +42,7 @@ print(tabela)
 # Passo 4: Cadastrar um produto
 for linha in tabela.index:
     # clicar no campo de código
-    pyautogui.click(x=653, y=294)
+    pyautogui.click(x=446, y=248)
     # pegar da tabela o valor do campo que a gente quer preencher
     codigo = tabela.loc[linha, "codigo"]
     # preencher o campo
