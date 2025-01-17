@@ -4,7 +4,7 @@
 
 import pyautogui
 import time
-import pandas
+import pandas as pd
 
 pyautogui.PAUSE = 0.3 # inclui uma pausa entre os comandos
 
@@ -18,35 +18,44 @@ pyautogui.PAUSE = 0.3 # inclui uma pausa entre os comandos
 link_da_pagina = 'https://dlp.hashtagtreinamentos.com/python/intensivao/login'
 
 pyautogui.press('win') # pressiona a tecla win
+#pyautogui.hotkey('winleft')
+#pyautogui.hotkey('win', 'r') # pressiona a tecla win + r
+#time.sleep(5)
 pyautogui.write('chrome') # digita o nome do navegador
 pyautogui.press('enter') # pressiona enter
-time.sleep(1) # aguarda 3 segundos para carregar o navegador
+time.sleep(3) # aguarda para carregar o navegador
 pyautogui.write(link_da_pagina) # digita o endereço do site
 pyautogui.press('enter') # pressiona enter
 
-
 # Passo 2: Fazer login
-usuario = 'vinicius@vinicius.com'
-senha = 'Vinicius123'
+time.sleep(1)
 
-time.sleep(1) # aguarda 3 segundos para carregar a página
-pyautogui.click(x=421, y=409) # clica no campo de email
+usuario = 'vini@vini.com'
+senha = '123'
+
+time.sleep(1) # aguarda para carregar a página
+#pyautogui.click(x=421, y=409) # clica no campo de email
+pyautogui.click(x=435, y=416)
+pyautogui.click(x=435, y=416)
+time.sleep(1) # aguarda para carregar a página
 pyautogui.write(usuario) # preenche o campo com o email
+time.sleep(1) # aguarda para carregar
 pyautogui.press('tab') # pressiona a tecla tab
 pyautogui.write(senha) # preenche o campo com a senha
 pyautogui.press('tab') # pressiona a tecla tab
 pyautogui.press('enter') # pressiona a tecla enter
 
 # Passo 3: Importar a base de dados
-tabela = pandas.read_csv('produtos.csv')
+tabela = pd.read_csv('produtos.csv')
 #print(tabela)
 
 # Passo 4: Cadastrar produtos da base de dados (# Passo 5: Repetir o processo de cadastro para todos os produtos)
-time.sleep(1)
+time.sleep(1) # aguarda para carregar a página
 
 for linha in tabela.index:
-    pyautogui.click(x=416, y=295) # clica no primeiro campo (código)
-
+    #pyautogui.click(x=416, y=295) # clica no primeiro campo (código)
+    pyautogui.click(x=411, y=286)
+    
     # campo código
     codigo = tabela.loc[linha, 'codigo'] 
     pyautogui.write(str(codigo)) # transforma em string e preenche
